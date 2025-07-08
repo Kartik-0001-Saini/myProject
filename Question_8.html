@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Multiple JS Tasks</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+            color: rgb(29, 89, 141);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>1. DOM Navigation Example</h2>
+    <div id="wrapper">
+        <p id="para1">First paragraph</p>
+        <p id="para2">Second paragraph</p>
+    </div>
+    <button onclick="logDOM()">Log DOM Info</button>
+
+    <hr>
+
+    <h2>2. Person Object using Constructor Function</h2>
+    <p id="constructorOutput"></p>
+
+    <hr>
+
+    <h2>3. Add Items to List</h2>
+    <ul id="myList">
+        <li>Existing Item</li>
+    </ul>
+    <button onclick="addListItem()">Add List Item</button>
+
+    <hr>
+
+    <h2>4. Person Class with Method</h2>
+    <p id="classOutput"></p>
+
+    <script>
+        function logDOM() {
+            const para1 = document.getElementById("para1");
+            const wrapper = document.getElementById("wrapper");
+
+            console.log(" ParentNode of para1:", para1.parentNode);
+            console.log(" ChildNodes of wrapper:", wrapper.childNodes);
+            console.log(" NextSibling of para1:", para1.nextSibling);
+            console.log(" NextElementSibling of para1:", para1.nextElementSibling);
+        }
+        function PersonConstructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        const person1 = new PersonConstructor("Himanshu", 19);
+        document.getElementById("constructorOutput").textContent = `Person: ${person1.name}, Age: ${person1.age}`;
+
+        function addListItem() {
+            const ul = document.getElementById("myList");
+            const li = document.createElement("li");
+            li.textContent = "New Item";
+            ul.appendChild(li);
+        }
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            sayHello() {
+                return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+            }
+        }
+
+        const person2 = new Person("Kartik", 20);
+        document.getElementById("classOutput").textContent = person2.sayHello();
+
+    </script>
+
+</body>
+
+</html>
