@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="userInput" placeholder="Type something annoning...">
+
+    <button onclick="updateText()">Update</button>
+
+    <p id="outputText">Your text will appear here.</p>
+
+    <script>
+        function updateText() { 
+            var input = document.getElementById("userInput").value;
+            document.getElementById("outputText").textContent = input;
+        }
+    </script>
+
+</body>
+
+</html>
